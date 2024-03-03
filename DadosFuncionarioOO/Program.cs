@@ -6,25 +6,24 @@ namespace DadosFuncionarioOO
     {
         static void Main(string[] args)
         {
+            Funcionario funcionario = new Funcionario();
+
             Console.WriteLine("Dados do funcionario");
             Console.Write("Nome: ");
-            string nome = Console.ReadLine();
+            funcionario.nome = Console.ReadLine();
             Console.Write("Salário Bruto: ");
-            double salarioBruto = double.Parse(Console.ReadLine());
+            funcionario.salarioBruto = double.Parse(Console.ReadLine());
             Console.WriteLine("Salário Líquido: ");
-            double imposto = double.Parse(Console.ReadLine());
+            funcionario.imposto = double.Parse(Console.ReadLine());
             Console.WriteLine("Porcentagem do Aumento: ");
 
-            double salarioLiquido = salarioBruto - imposto;
+            Console.WriteLine("O funcionário " + funcionario.nome + " receberá " + funcionario.CalcularSalarioLiquido().ToString("C"));
 
-            Console.WriteLine("O funcionário " + nome + " receberá " + salarioLiquido.ToString("C"));
+            Console.Write("Digite o aumento do funcionário: ");
+            funcionario.CalcularAumento(double.Parse(Console.ReadLine()));
 
-            double aumento = double.Parse(Console.ReadLine()) / 100;
-            salarioBruto *= aumento + 1;
-            salarioLiquido = salarioBruto - imposto;
-
-            Console.WriteLine("Considerando o aumento os novos valores para o funcionário " + nome + " serão:" +
-                "\nSalário Bruto: " + salarioBruto + "\nSalario Líquido: " + salarioLiquido);
+            Console.WriteLine("Considerando o aumento os novos valores para o funcionário " + funcionario.nome + " serão:" +
+                "\nSalário Bruto: " + funcionario.salarioBruto + "\nSalario Líquido: " + funcionario.CalcularSalarioLiquido().ToString("C"));
         }
     }
 }
