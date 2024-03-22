@@ -6,16 +6,19 @@ namespace DadosFuncionarioOO
     {
         static void Main(string[] args)
         {
-            Funcionario funcionario = new Funcionario();
+            string nome;
+            double salarioBruto, imposto;
 
             Console.WriteLine("Dados do funcionario");
             Console.Write("Nome: ");
-            funcionario.nome = Console.ReadLine();
+            nome = Console.ReadLine();
             Console.Write("Salário Bruto: ");
-            funcionario.salarioBruto = double.Parse(Console.ReadLine());
+            salarioBruto = double.Parse(Console.ReadLine());
             Console.WriteLine("Salário Líquido: ");
-            funcionario.imposto = double.Parse(Console.ReadLine());
+            imposto = double.Parse(Console.ReadLine());
             Console.WriteLine("Porcentagem do Aumento: ");
+
+            Funcionario funcionario = new Funcionario(nome, salarioBruto, imposto);
 
             Console.WriteLine("O funcionário " + funcionario.nome + " receberá " + funcionario.CalcularSalarioLiquido().ToString("C"));
 
