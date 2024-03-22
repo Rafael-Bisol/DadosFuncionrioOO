@@ -34,6 +34,10 @@ namespace DadosFuncionarioOO
         public Funcionario(string nome, double salarioBruto, double imposto) : this(nome, salarioBruto) {
             this.imposto = imposto;
         }
+
+        public override string ToString(){
+            Console.WriteLine($"Nome: {nome}\nSalario Bruto: {salarioBruto}\nImposto: {imposto}\nSalário Líquido: {CalcularSalarioLiquido()}");
+        }
         /*public double CalcularAumento(double aumento)
         {
             return salarioBruto * (aumento / 100 + 1);
